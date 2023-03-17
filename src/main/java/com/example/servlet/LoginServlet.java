@@ -23,9 +23,9 @@ resp.sendRedirect("/user/hello.jsp.");
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-if( Users.getInstance().getUsers().contains(req.getParameter("login"))&& !(req.getParameter("password")==null)){
-    resp.sendRedirect("/user/hello.jsp");
+if( Users.getInstance().getUsers().contains(req.getParameter("login"))&& !(req.getParameter("password")==null) && !(req.getParameter("password").trim().isEmpty())){
     req.getSession().setAttribute("user",req.getParameter("login"));
+    resp.sendRedirect("/user/hello.jsp");
 }
 else{
     resp.sendRedirect("/login.jsp");
