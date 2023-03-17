@@ -28,7 +28,7 @@ if( Users.getInstance().getUsers().contains(req.getParameter("login"))&& !(req.g
     resp.sendRedirect("/user/hello.jsp");
 }
 else{
-    resp.sendRedirect("/login.jsp");
+    req.getRequestDispatcher("/login.jsp").forward(req, resp);
 }
     }
 //write your code here!
