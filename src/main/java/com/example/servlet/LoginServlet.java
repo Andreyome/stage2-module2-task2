@@ -24,11 +24,11 @@ resp.sendRedirect("/login.jsp");
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 if( Users.getInstance().getUsers().contains(req.getParameter("login"))&& !(req.getParameter("password")==null)){
-    resp.sendRedirect("/user/hello.jsp");
+    resp.sendRedirect("/login.jsp");
     req.getSession().setAttribute("user",req.getParameter("login"));
 }
 else{
-    resp.sendRedirect("/login.jsp");
+    resp.sendRedirect("/user/hello.jsp");
 }
     }
 //write your code here!
