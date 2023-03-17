@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter
+@WebFilter(urlPatterns = {"/user/*"})
 public class AuthFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -22,7 +22,9 @@ public class AuthFilter implements Filter {
         if (session.getAttribute("/user/*") == null){
             resp.sendRedirect("/login.jsp");
         }
-        filterChain.doFilter(servletRequest,servletResponse);
+        else{
+            filterChain.doFilter(servletRequest,servletResponse);
+        }
     }
     @Override
     public void destroy() {
