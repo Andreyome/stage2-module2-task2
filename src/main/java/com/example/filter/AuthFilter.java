@@ -26,9 +26,5 @@ public class AuthFilter implements Filter {
             filterChain.doFilter(servletRequest,servletResponse);
         }
     }
-    @Override
-    public void destroy() {
-        Filter.super.destroy();
-    }
     //write your code here!
 }
